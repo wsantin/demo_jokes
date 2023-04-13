@@ -1,6 +1,6 @@
 # Demo - Microservicio - Lambda
 
-Microservicio para las api CRUD de User
+Microservicio para las api CRUD de Chistes
 Utilizamos el servicio gratuito de Mysql
 
 ## INSTALACIÓN
@@ -11,7 +11,7 @@ python3 -m pip install --upgrade pip
 pip3 install virtualenv
 virtualenv -p python3.6 env --clear
 
-LINUX: source env/bin/activate  && deactivate
+LINUX: source env/Scripts/activate  && deactivate
 WINDOWS: .\env\Scripts\activate && deactivate
 ```
 ### Instalar dependencicas
@@ -23,6 +23,7 @@ pip install -r requirements.txt
 ## Iniciar Aplicación con UVICORN LOCAL
 ```
 uvicorn app.api:app --reload --port 7000 || python -m uvicorn app.api:app --reload --port 7000
+browser: http://localhost:7000/docs
 ```
 
 ## Iniciar Aplicación con Docker Local
@@ -40,9 +41,9 @@ pytest
 
 ## INSTALACIÓN
 ## Crear modelo en base de datos
-```
-python .\seeds\create_db.py
-```
+MYSQL
+Existe una query de SQL en app/models/docs/1681223026-create-jocke-table.sql
+Está creado con timestamp y la referencia de la query
 
 ## DEPLOY CON DOCKER
 ### Crear repositorio en ECR
@@ -81,12 +82,4 @@ Crear Recurso: Selecciona recurso de Proxy
 Seleccionar en Any y escoger la lambda: fastapi-mysql-demo
 Seleccionar en Proxy e implementar API
 Nueva etapa: stage
-```
-
-
-## Script
-Crear usuario cognito
-```
-python .\scripts\cognito\create_user.py -u +51900000000 -p passwordtemporal -n "Mis nombres" -d 03600000 -e huas@gmail.com
-python .\scripts\cognito\create_user.py -u +51918558986 -p factura12 -n "walter santin zapata" -d 73318291 -e hugo.93wal@gmail.com
 ```

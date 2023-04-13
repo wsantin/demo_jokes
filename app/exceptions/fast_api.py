@@ -5,17 +5,6 @@ from app.exceptions.fast_status_error import error_custom
 # Aqui entra error de FastApi y SqlAlchemy
 async def http_exception_handler(request: Request, exception):
     
-    # return JSONResponse(
-    #         status_code = 422,
-    #         content = {
-    #             "error": "fd",
-    #             "message": "Validación de parametros incorrecto", 
-    #             "type": "ValidateFields", 
-    #             "code": 190,
-    #             "status_code": 422
-    #         }
-    #     )
-    
     try:
         status_code = exception.status_code
     except Exception:
@@ -35,7 +24,6 @@ async def http_exception_handler(request: Request, exception):
                 "error": {
                     "message": detail,
                     "code": 1546,             
-                    #"error_subcode": 460, #Sub code manejarlo por Error de autenticación
                 },
                 "type": "ServerApi", 
                 "status_code": status_code

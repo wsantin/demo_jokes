@@ -11,7 +11,7 @@ class ResponseJson(Response):
       content=dumps({
         'status_code': status_code,
         'data': content,
-        'message': 'Consulta exitosa',
+        'message': 'Exitoso',
       }),
       media_type="application/json",
       *args,

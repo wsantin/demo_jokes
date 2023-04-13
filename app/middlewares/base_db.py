@@ -27,7 +27,6 @@ class BaseDbMiddleware(APIRoute):
                 response: Response = await original_route_handler(request)
                 duration = time.time() - before
                 response.headers["X-Response-Time"] = str(duration)
-                # response.token= 'TOKENasasa'
                 
                 return response
             
